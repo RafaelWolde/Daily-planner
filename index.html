@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        <title>HTML</title>
+
+        <!-- HTML -->
+
+        <link rel="stylesheet" href="bootstrap-icons.css" type="text/css" />
+        <link rel="stylesheet" href="bootstrap.min.css" type="text/css" />
+        <!-- Custom Styles -->
+        <link rel="stylesheet" href="style.css" />
+        <link rel="stylesheet" href="tasks.css" type="text/css" media="all" />
+    </head>
+
+    <body>
+        <div class="editOptions" id="editOptions">
+          <button class="update clr-orange">Update <i class="bi bi-pen"></i></button>
+          <button class="delete clr-red">Delete <i class="bi bi-trash"></i></button>
+          <button class="copy clr-green">Copy <i class="bi bi-files"></i></button>
+          <button class="close clr-yellow" ><i class="bi bi-x"></i></button>
+        </div>
+         <div style="visibility: hidden;" class="promptOptions">
+           <h1 class="readable">
+            Prompts
+           </h1>
+          <button onclick="copyPrompt(event)" class="readable btn">Set task notification at start of each task</button>
+          <button onclick="copyPrompt(event)" class="readable btn" >Set alarm at start of each task</button>
+          <button onclick="copyPrompt(event)" class="readable btn">Set alarm for high urgency(orange and red) tasks and notification for others.</button>
+        </div>
+        <div id="customAlert" style="display: none;">
+          <div>
+            <div class="alert-content">
+             <p>Your custom alert message goes here.</p>
+            </div>
+            <button id="closeAlert">Close</button>
+          </div>
+        
+        </div>
+        <header class="header">
+            <p class="dateDisp"></p>
+            <div>
+              <button class="orientVertical" ><i class="cw bi bi-arrow-down-square-fill"></i></button>
+              <button class="orientHorizontal" ><i class="cw bi bi-arrow-right-square-fill"></i></button>
+            </div>
+            <div id="copyTaskPrompt">
+               <i class="bi bi-list-nested"></i>
+            </div>
+            <nav>
+                <ul class="navMenu">
+                    <li class="menuItem" id="btnCalendar">
+                        <i class="bi bi-calendar-week-fill"></i>
+                        <input
+                            type="date"
+                            name="calender"
+                            id="calendar"
+                            value=""
+                        />
+                    </li>
+                    <li class="menuItem">
+                        <i class="bi bi-gear-fill"> </i>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <section id="dateScroller" class="dateScroller">
+                <div class="previousPage">
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                </div>
+                <div class="currentPage">
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                </div>
+                <div class="nextPage">
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                    <div class="dateSelection">
+                        <p class="dateSelectionDay"></p>
+                        <p class="dateSelectionDate"></p>
+                        <span class="actionCount"></span>
+                    </div>
+                </div>
+            </section>
+            <section class="plan" id="plan">
+                <div class="tasksContainer">
+                        <div class="tasks">
+                           <div id="currentPoint">55:99 PM</div>
+                           <svg class="timelineCanvas" id="timeline">
+                             <defs>
+                                <linearGradient id="timelineStrokeClr" x1="0%" x2="100%" y1="0%" y2="0%">
+                                  <stop offset="0%" stop-color="yellow" />
+                                  <stop offset="100%" stop-color="gray" />
+                                </linearGradient>
+                                
+                                <linearGradient id="timelineStrokeClrV" x1="0%" x2="0%" y1="0%" y2="100%">
+                                  <stop offset="0%" stop-color="yellow" />
+                                  <stop offset="100%" stop-color="gray" />
+                                </linearGradient>
+                              </defs>
+                            <path fill="url(#timelineStrokeClr)" id="timelineRange" d=""></path>
+                            <path fill="url(#timelineStrokeClrV)" id="timelineRangeV" d=""></path>
+                            <path id="hours" fill="none" stroke="pink"></path>
+                            <path id="minutes" fill="none" stroke="pink" d=""></path>
+                            
+                          </svg>
+                        </div>
+                </div>
+
+                <div class="addDetails">
+
+                    <button id="closeAddDetails" class="closeAddDetails">
+                        <i class="bi bi-x-lg"></i>
+                    </button>
+                    <div class="titleField input">
+                        <button class="changeIcon">
+                            <i class="bi bi-pen-fill"></i>
+                        </button>
+                        <input
+                            class="textIn"
+                            type="text"
+                            name="title"
+                            id="title"
+                            value=""
+                            placeholder="Title"
+                        />
+                    </div>
+                     <div class="iconsContainer" id="iconsContainer">
+                       <input class="searchIcon" id="searchIcon" type="text" name="" id="" value="" />
+                     </div>
+                    <div class="scheduledTime mb2">
+                        <div type="timeInput" class="startTime input">
+                            <h2 class="startTimeTitle">START AT</h2>
+                            <div class="timeSelectionContainer">
+                                <div
+                                    maxHour="11"
+                                    class="hourSelection"
+                                    type="hourInput"
+                                    id="hourSelection"
+                                ></div>
+                                <div class="timeColon">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div
+                                    class="minuteSelection"
+                                    type="minuteInput"
+                                    id="minuteSelection"
+                                ></div>
+                                <div class="timePeriodSelection">
+                                    <span value="PM"  class="containerItem">PM</span>
+                                    <span value="AM"  class="containerItem">AM</span>
+                                  </div>
+                            </div>
+                        </div>
+                        <div type="timeInput" class="endTime input adjustable">
+                            <h2 class="startTimeTitle">
+                                For
+                                <sub
+                                    style="
+                                        font-family: monospace;
+                                        font-weight: 100;
+                                        font-size: 0.625rem;
+                                    "
+                                    >h:m</sub
+                                >
+                            </h2>
+                            <div  class="timeSelectionContainer">
+                                <div
+                                    maxHour="23"
+                                    class="hourSelection"
+                                    type="hourInput"
+                                    id="hourSelection"
+                                ></div>
+                                <div class="timeColon">
+                                    <span></span>
+                                    <span></span>
+                                </div>
+                                <div
+                                    class="minuteSelection"
+                                    type="minuteInput"
+                                    id="minuteSelection"
+                                ></div>
+                                <div class="stepControl">
+                                    <button class="stepUp">
+                                        <i class="bi bi-chevron-up"></i>
+                                    </button>
+                                    <button class="stepDown">
+                                        <i class="bi bi-chevron-down"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="startTimeTitle">
+                      Repeat
+                    </h2>
+                    <div class="daySelection tabbed mb1">
+                      <div class="daySelectionItem">
+                            <label for="monday">Mon</label>
+                            <input type="checkbox" name="monday" id="monday" />
+                        </div>
+                      <div class="daySelectionItem">
+                        <label for="tuesday">Tue</label>
+                        <input type="checkbox" name="tuesday" id="tuesday" />
+                      </div>
+  
+                      <div class="daySelectionItem">
+                        <label for="wednesday">Wed</label>
+                        <input type="checkbox" name="wednesday" id="wednesday" />
+                      </div>
+                      <div class="daySelectionItem">
+                        <label for="thursday">Thu</label>
+                        <input type="checkbox" name="thursday" id="thursday" />
+                      </div>
+                      <div class="daySelectionItem">
+                        <label for="friday">Fri</label>
+                        <input type="checkbox" name="friday" id="friday" />
+                      </div>
+                      <div class="daySelectionItem">
+                        <label for="saturday">Sat</label>
+                        <input type="checkbox" name="saturday" id="saturday" />
+                      </div>
+                      <div class="daySelectionItem">
+                        <label for="sunday">Sun</label>
+                        <input type="checkbox" name="sunday" id="sunday" />
+                      </div>
+                </div>
+                <div class="rateSelector tabbed mb2">
+                  <h2>
+                    every
+                  </h2>
+                  <div class="rateSelections">
+                    <div class="rateSelectionItem">
+                      <label for="once">once</label>
+                      <input checked type="radio" name="every" id="once">
+                    </div>
+                    <div class="rateSelectionItem">
+                      <label for="everyday">day</label>
+                      <input num="1" type="radio" name="every" id="everyday">
+                    </div>
+                    <div class="rateSelectionItem">
+                      <label for="everyweek">week</label>
+                      <input num="7" type="radio" name="every" id="everyweek">
+                    </div>
+                    <div class="rateSelectionItem">
+                      <label for="everymonth">month</label>
+                      <input num="30" type="radio" name="every" id="everymonth">
+                    </div>
+                    <div class="rateTextItem">
+                      <label for="everynday">every</label>
+                      <input class="textIn" max="3650" placeholder="0" type="number" name="everynday" id="everynday">
+                      <label for="everynday">days.</label>
+                    </div>
+                    <div class="everyFromTo">
+                      <label for="from">from <span class="from"></span> <i class="bi bi-calendar"></i></label>
+                      <input type="date" name="from" id="from" value="" />
+                      <label for="to">to <span class="to">forever</span> <i class="bi bi-calendar-week-fill"></i></label>
+                      <input type="date" name="to" id="to" value="" />
+                    </div>
+                  </div>
+                </div>
+                <div class="typeSelector tabbed mb3">
+                    <h2>
+                      urgency
+                    </h2> 
+                    <div class="typeSelections">
+          
+                      <div class="typeSelectionItem">
+                        <label style="--u-c: hsl(230, 100%, 80%);" for="blue"></label>
+                        <input checked type="radio" name="urgency" id="blue">
+                      </div>
+                      <div class="typeSelectionItem">
+                        <label style="--u-c: hsl(110, 100%, 80%);"  for="green"></label>
+                        <input type="radio" name="urgency" id="green">
+                      </div>
+                       <div class="typeSelectionItem">
+                        <label style="--u-c: hsl(50, 100%, 80%);" for="yellow"></label>
+                        <input type="radio" name="urgency" id="yellow">
+                      </div>
+                       <div class="typeSelectionItem">
+                        <label style="--u-c: hsl(15, 100%, 70%);" for="orange"></label>
+                        <input type="radio" name="urgency" id="orange">
+                      </div>
+                       <div class="typeSelectionItem">
+                        <label style="--u-c: hsl(0, 100%, 70%);" for="red"></label>
+                        <input type="radio" name="urgency" id="red">
+                      </div>
+                    </div>
+                      
+                  </div>
+                <div class="taskDefinition mb2">
+                  <h2>
+                    definition
+                  </h2>
+                  <div class="definition">
+                    <textarea class="definitionText textIn input" name="definition" rows="8" cols="40"></textarea>
+                  </div>
+          
+                </div>
+                <div class="addSubTasks">
+                  <button class="btn textIn mb3" type="submit">add sub task <i class="bi bi-plus"></i></button>
+                </div>
+                <button id="saveBtn" class="saveBtn btn">Save task</button>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="actionBtnWrapper">
+                <button
+                    id="createRoutine"
+                    class="actionBtn createRoutine"
+                    type=""
+                >
+                    <i class="bi bi-arrow-repeat"></i>
+                </button>
+                <button id="createTask" class="actionBtn createTask" type="">
+                    <i class="bi bi-list-task"></i>
+                </button>
+                <button id="createBtn" class="actionBtn create" type="">
+                    <i class="bi bi-plus"></i>
+                </button>
+            </div>
+        </footer>
+        <script src="fuse.js@7.1.0.js" type="text/javascript" charset="utf-8"></script>
+        <script src="icons.js" type="text/javascript" charset="utf-8"></script>
+        <script src="store.js" type="text/javascript" charset="utf-8"></script>
+        <script src="main.js"></script>
+        <script src="edit.js"></script>
+    </body>
+</html>

@@ -1,0 +1,198 @@
+.tasksContainer {
+  --containerPg: var(--bg-clr-secondary);
+  overflow-y: scroll;
+  background: var(--containerPg);
+  height: 100%;
+  padding: 16px 0;
+  color: var(--clr-secondary);
+  position: relative;
+}
+#currentPoint{
+  position: absolute;
+  bottom: -4px;
+  left: 20px;
+  padding-left: 6px;
+  border-left: 1px solid gold;
+  white-space: nowrap;
+  line-height: 1rem;
+  font-size: .75rem
+}
+  .tasks{
+    --min-h: 90%;
+    gap: 2rem;
+    padding: 16px;
+    min-height: var(--min-h);
+    position: relative;
+    overflow-x: scroll;
+    display: flex;
+    align-items: flex-end;
+    overflow-y: auto;
+  }
+  body.vertical .tasks{
+    flex-direction: column;
+    align-items: flex-start;
+    min-height: fit-content;
+  }
+  body.vertical .tasks .taska{
+    position: static;
+    margin-bottom: var(--rmr);
+  }
+  body.vertical .tasks circle,
+  body.vertical .tasks .horizon{
+    display: none;
+  }
+  #timelineRangeV{
+    display: none;
+  }
+
+  body.vertical .tasks #timelineRange {
+    display: none;
+  }  
+  body.vertical .tasks #timelineRangeV {
+    display: inline-block;
+  }
+  
+  body.vertical .tasks .freeTimeAlert{
+    margin-left: 32px;
+  }
+  .tasks.balanced{
+    align-items: center;
+  }
+  .tasks.topBalanced{
+    align-items: flex-start;
+  }
+  .tasks.balanced .taska,
+  .tasks.tasks.topBalanced .taska{
+    position: static;
+  }
+  .timelineCanvas{
+    position: absolute; 
+    bottom: 16px; 
+    left: 16px;
+  }
+  .readable{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 200;
+  } 
+  .freeTimeAlert{
+    font-size: .75rem;
+    translate: 0 -1rem;
+    display: flex;
+    flex-direction: column;
+    color: var(--clr-alert-dark);
+  }
+  .nowordwrap{
+    white-space: nowrap;
+  }
+  .taska{
+      position: relative;
+      margin-bottom: var(--ytr);
+      height: fit-content;
+      display: flex;
+      margin-right: var(--rmr);
+      translate: 0 -16px;
+    }
+    .timeHint{
+      display: flex;
+      font-size: 1rem;
+      width: 100%;
+      min-width: 230px;
+      justify-content: end;
+      color: var(--green);
+    }
+    .tasks.vertical .title{
+      width: 100%;
+    }
+    .title{
+      position: relative;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 200;
+      font-size: 1.25rem;
+      white-space: nowrap;
+      border-radius: 8px;
+      padding: 16px;
+      border: 1px solid var(--clr-gray-500);
+      border-top-left-radius: 0px;
+   }
+    .title:after {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: -10px;
+      width: 10px;
+      height: 20px;
+      background: var(--clr-gray-500);
+      clip-path: path("M1 1L10 1L10 0 L0 0L0 1A10 20,0,0,1,9.21 20L10 20 A 9 20, 0,0,0, 2 1");
+      }
+      .title:before{
+        content: "";
+      position: absolute;
+      top: -1px;
+      left: -10px;
+      width: 10px;
+      height: 20px;
+      background: var(--containerPg);
+      clip-path: path("M10 20 A 9 20, 0,0,0, 2 1L 10 1Z");
+      }
+    .icon{
+      background: hsl(240, 100%, 80%);
+      min-width: 40px;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid transparent;
+      border-radius: 50px;
+      margin-right: 8px;
+      position: relative;
+    }
+   .bgclr-blue {
+   background: hsl(230, 100%, 80%);
+   fill: hsl(230, 100%, 80%);
+ } .bgclr-green {
+   background: hsl(110, 100%, 80%);
+   fill: hsl(110, 100%, 80%);
+ } .bgclr-yellow {
+   background: hsl(50, 100%, 80%);
+   fill: hsl(50, 100%, 80%);
+ } .bgclr-orange {
+   background: hsl(15, 100%, 80%);
+   fill: hsl(15, 100%, 80%);
+ } .bgclr-red {
+   background: hsl(0, 100%, 80%);
+   fill: hsl(0, 100%, 80%);
+   }
+ 
+    .clr-blue {
+   color: hsl(230, 100%, 80%);
+   stroke: hsl(230, 100%, 80%);
+ } .clr-green {
+   color: hsl(110, 100%, 80%);
+   stroke: hsl(110, 100%, 80%);
+ } .clr-yellow {
+   color: hsl(50, 100%, 80%);
+   stroke: hsl(50, 100%, 80%);
+ } .clr-orange {
+   color: hsl(15, 100%, 80%);
+   stroke: hsl(15, 100%, 80%);
+ } .clr-red {
+   color: hsl(0, 100%, 80%);
+   stroke: hsl(0, 100%, 80%);
+ }
+    .editBtn{
+      margin-right: auto;
+    }
+    .moreBtn{
+      text-justify: justify;
+    }
+    .tas *{
+      border: 1px solid #800;
+    }
+    
+    
+    body:has(input:focus) .saveBtn{
+      opacity: .15;
+      pointer-events: none;
+    }
+    
+    

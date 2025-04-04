@@ -1,0 +1,134 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="bootstrap-icons.css" type="text/css" />
+        <link rel="stylesheet" href="bootstrap.min.css" type="text/css" />
+        <!-- Custom Styles -->
+        <link rel="stylesheet" href="style.css" />
+
+</head>
+<body>
+  <style type="text/css" media="all">
+  *{
+    border: px solid pink;
+  }
+  body{
+    height: 100vh;
+    overflow-y: hidden;
+    background: black;
+    overflow-y: scroll;
+  }
+  .tasks{
+    --min-h: 80vh;
+    gap: 2rem;
+    padding: 16px;
+    min-height: var(--min-h);
+    background: red;
+    position: relative;
+    background: black;
+    overflow-x: scroll;
+    display: flex;
+    align-items: flex-end;
+  }
+  .readable{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: 200;
+  } 
+  .freeTimeAlert{
+    font-size: .75rem;
+    translate: 0 -1rem;
+    display: flex;
+    flex-direction: column;
+    color: hsl(10, 100%, 75%);
+  }
+  .nowordwrap{
+    white-space: nowrap;
+  }
+    .taska{
+      position: relative;
+      top: var(--ytr);
+      height: fit-content;
+      display: flex;
+      margin-right: var(--rmr);
+    }
+    .timeHint{
+      display: flex;
+      font-size: 1rem;
+      width: 100%;
+      min-width: 200px;
+      justify-content: end;
+    }
+    .title{
+      position: relative;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      font-weight: 200;
+      white-space: nowrap;
+      border-top-left-radius: 0px;
+    }
+    .title:after {
+      content: "";
+      position: absolute;
+      top: -1px;
+      left: -10px;
+      width: 10px;
+      height: 20px;
+      background: var(--clr-gray-300);
+      clip-path: path("M1 1L10 1L10 0 L0 0L0 1A10 20,0,0,1,9.21 20L10 20 A 9 20, 0,0,0, 2 1");
+      }
+      .title:before{
+        content: "";
+      position: absolute;
+      top: -1px;
+      left: -10px;
+      width: 10px;
+      height: 20px;
+      background: black;
+      clip-path: path("M10 20 A 9 20, 0,0,0, 2 1L 10 1Z");
+      }
+    .icon{
+      background: hsl(240, 100%, 80%);
+      min-width: 40px;
+      height: auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid transparent;
+      border-radius: 50px;
+      margin-right: 8px;
+      position: relative;
+      
+    }
+    .icon span:after{
+      content: "";
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      bottom: 0px;
+      left: -4px;
+      border-radius: 8px;
+      background: white;
+    }
+    .editBtn{
+      color: var(--light-green);
+      margin-right: auto;
+    }
+    .moreBtn{
+      text-justify: justify;
+    }
+  </style>
+  
+    <div class="tasks">
+       <svg id="timeline" style="position: absolute; top: 0; left: 16px;">
+        <path id="timelineRange"  stroke-dasharray="2 4 3 4 2" stroke="pink" d="M0 0L400 0"></path>
+        <path id="hours" fill="none" stroke="pink"></path>
+        <path id="minutes" fill="none" stroke="pink" d=""></path>
+      </svg>
+    </div>
+
+  </div>
+  <script src="edit.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
