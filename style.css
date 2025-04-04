@@ -44,6 +44,7 @@ body {
     font-family: Sevenseg;
     background: var(--bg-clr-secondary);
     color: var(--clr-secondary);
+    max-width: 400px;
 }
 .cw{
   color: var(--clr-primary);
