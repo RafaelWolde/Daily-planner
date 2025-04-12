@@ -4,8 +4,8 @@
     "description": "Your daily routine planner.",
     "start_url": "https://studious-broccoli-j75xqv46v5w2qjq5-5500.app.github.dev",
     "display": "standalone",
-    "background_color": "#544534",
-    "theme_color": "#544534",
+    "background_color": "#ffffff",
+    "theme_color": "#171717",
     "prefer_related_applications": true,
     "related_applications": [
         {
