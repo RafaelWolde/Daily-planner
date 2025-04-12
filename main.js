@@ -39,7 +39,7 @@ if('serviceWorker' in navigator){
 
 let deferredPrompt;
 window.addEventListener('beforeinstallprompt', (e)=>{
-  console.log("Web app prompt is available")
+  alert("Web app prompt is available")
   e.preventDefault()
   deferredPrompt = e;
   const installBtn = document.getElementById('intallBtn');
