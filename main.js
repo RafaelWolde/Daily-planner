@@ -97,7 +97,7 @@ orientVertical.addEventListener('click', (e) => {document.body.classList.add('ve
 orientHorizontal.addEventListener('click', (e) => {document.body.classList.remove('vertical'); updateTask(tasks);updateTimelineDisp()})
 copyTaskPrompt.addEventListener('click', () => {
     let pops = document.querySelector('.promptOptions').cloneNode(true)
-    pops.style.visibility = 'visible'
+    pops.style.display = 'flex'
     
     showPopup(pops)
     
@@ -188,26 +188,27 @@ createBtn.addEventListener('click',
 )
 
 
-createTaskBtn.addEventListener('click', (e) => {
-    let a = 
-    document.
-    querySelector('.plan .addDetails')
-    a.classList.add('active')
-    document.querySelector('.actionBtnWrapper').style.visibility = 'hidden'
-    let fil = sortedTasks.filter(ele=>ele.completed!=undefined)
-    let finalTask = fil[fil.length-1]
-    let st
-    if (!finalTask) {
-      st = '06:00 AM'
-    } else {
-      st = calculateEndTime(finalTask.startsAt, finalTask.length)
-    }
+createTaskBtn.addEventListener('click', createTaskBtnClicked)
+createTaskBtn.addEventListener('mousedown', createTaskBtnClicked)
+function createTaskBtnClicked(e){
+  let a = 
+  document.
+  querySelector('.plan .addDetails')
+  a.classList.add('active')
+  document.querySelector('.actionBtnWrapper').style.visibility = 'hidden'
+  let fil = sortedTasks.filter(ele=>ele.completed!=undefined)
+  let finalTask = fil[fil.length-1]
+  let st
+  if (!finalTask) {
+    st = '06:00 AM'
+  } else {
+    st = calculateEndTime(finalTask.startsAt, finalTask.length)
+  }
 
-    setTime(startTimeField, st)
-    setTime(endTimeField, '00:00')
-    
-})
-
+  setTime(startTimeField, st)
+  setTime(endTimeField, '00:00')
+  
+}
 closeAddDetails.addEventListener('click', (e) => {
     let a = 
     document.

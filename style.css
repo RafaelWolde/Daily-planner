@@ -39,12 +39,18 @@
 p{
   margin: 0;
 }
+html{
+  display: flex;
+  justify-content: center;
+}
 body {
     font-size: 15pt;
     font-family: Sevenseg;
     background: var(--bg-clr-secondary);
     color: var(--clr-secondary);
     max-width: 400px;
+    position: relative;
+    
 }
 .cw{
   color: var(--clr-primary);
@@ -451,6 +457,8 @@ button:focus{
   position: fixed;
   bottom: 2rem;
   right: 2rem;
+  max-width: 400px;
+  z-index: 1000;
 }
 .actionBtnWrapper{
   position: relative;
@@ -621,3 +629,6 @@ button:focus{
       flex-direction: column;
       gap: .5rem;
     }
+#createTask:hover{
+  opacity: .9;
+}
