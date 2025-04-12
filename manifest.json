@@ -1,5 +1,5 @@
 {
-  "name": "Daily planner",
+  "name": "DailyPlanner",
   "short_name": "Daily",
   "description": "Your daily routine planner.",
   "start_url": "/index.html",

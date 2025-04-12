@@ -28,6 +28,37 @@ let sp = date.toString().split(' ').slice(0,3).join(', ')
 dateDisp.textContent = sp
 let emptyTask = { icon: "bi-pen-fill", title: "", startsAt: "", length: "0h0m", urgency: "blue", description: "", repeat: [], every: {days: 0, from: null, to: null}, subTasks: [], completed: false}
 let taskData = {...emptyTask}
+
+if('serviceWorker' in navigator){
+  window.addEventListener('load', ()=>{
+    navigator.serviceWorker.register('/service-worker.js').then(reg=>console.log('Servise worker registered', reg)).catch(
+      err=>console.error('Service Worker failed', err)
+    )
+  })
+}
+
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e)=>{
+  console.log("Web app prompt is available")
+  e.preventDefault()
+  deferredPrompt = e;
+  const installBtn = document.getElementById('intallBtn');
+  installBtn.style.display = 'block';
+  installBtn.addEventListener('click', ()=>{
+    installBtn.style.display = 'none';
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.then(choiceResult =>{
+      if(choiceResult.outcome === 'accepted'){
+        console.log('User accepted the Prompt.');
+      }
+      else{
+        console.log('User desmissed the Prompt')
+      }
+      deferredPrompt = null;
+    })
+  })
+})
+
 titleField.onselectionchange = (e)=>taskData.title=e.target.value
 titleField.addEventListener('keydown', (e) => {
     taskData.title=e.target.value
