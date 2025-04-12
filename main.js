@@ -3,6 +3,7 @@ const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
 let selectedDate = today()
 let currentShift = 0
+let fullScreenOn = false
 let copyTaskPrompt = document.getElementById('copyTaskPrompt')
 const dateDisp = document.querySelector('.dateDisp')
 const createBtn = document.getElementById('createBtn')
@@ -354,9 +355,10 @@ function openFullscreen() {
   } else if (elem.msRequestFullscreen) { /* IE11 */
     elem.msRequestFullscreen();
   }
+  fullScreenOn = true
 }
 
-openFullscreen()
+document.getElementById('setFullScreen').addEventListener('click', openFullscreen)
 function toggleSetup(container, conditional=(value)=>{}) {
   container.style.position = 'relative'
   container.addEventListener('scroll',

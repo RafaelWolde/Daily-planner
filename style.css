@@ -76,7 +76,7 @@ h2{
 header{
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   padding: 16px;
   height: 60px;
 }
@@ -87,9 +87,7 @@ header{
 .navMenu{
   display: flex;
 }
-.menuItem{
-  
-}
+
 .dateDisp{
   font-weight: 900;
   align-self: center
